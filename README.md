@@ -1,4 +1,4 @@
-[Project Page](https://yoterel.github.io/casper-project-page/) | [Paper](https://arxiv.org/abs/2409.04397) | [Supplementary](https://yoterel.github.io/casper-project-page/static/pdfs/AttentionChains_supp.pdf)
+[Project Page](https://yoterel.github.io/attention_chains_project_page/) | [Paper]() | [Supplementary](https://yoterel.github.io/casper-project-page/static/pdfs/AttentionChains_supp.pdf)
 
 # Attention Chains
 
