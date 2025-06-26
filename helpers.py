@@ -41,13 +41,13 @@ def batch_power_method(P, init_state, max_iter=200):
     Computes the steady-state vector of a right stochastic matrix using the iterative power method.
     
     Parameters:
-        P (torch.Tensor): A square right stochastic matrix of shape (n, n).
-        init_state: (n, ) torch tensor representing the intial state, must sum up to 1
+        P (torch.Tensor): A square right stochastic matrix of shape (..., n, n) (... can be any number of leading dims).
+        init_state: (..., n) torch tensor representing the intial state, must sum up to 1
         tol (float): Tolerance for convergence.
         max_iter (int): Maximum number of iterations.
         return_intermed: returns intermediate outputs
     Returns:
-        torch.Tensor: The steady-state vector (n, ).
+        torch.Tensor: The steady-state vector (..., n).
     """
     x = init_state.detach().clone()
     x = x / x.sum()
