@@ -1,1 +1,1 @@
-# attention_chains
+# Attention (as discrete-time Markov) Chains
