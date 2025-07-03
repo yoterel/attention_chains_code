@@ -1,4 +1,4 @@
-[Project Page](https://yoterel.github.io/attention_chains_project_page/) | [Paper]() | [Supplementary](https://yoterel.github.io/attention_chains_project_page/static/pdfs/AttentionChains_supp.pdf)
+[Project Page](https://yoterel.github.io/attention_chains/) | [Paper]() | [Supplementary](https://yoterel.github.io/attention_chains/static/pdfs/AttentionChains_supp.pdf)
 
 # Attention Chains
 
