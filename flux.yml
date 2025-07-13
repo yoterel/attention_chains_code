@@ -1,0 +1,29 @@
+pretrained_model_name_or_path: "black-forest-labs/FLUX.1-schnell"  # "black-forest-labs/FLUX.1-dev"
+cache_dir: "./models"
+output_dir: "results/flux/cat_example"
+default_job_index: 0
+transformer_blocks_to_save: [9, 10, 11, 12, 13, 14, 15, 16, 17, 18]  # save last ten block activations
+single_transformer_blocks_to_save: [28, 29, 30, 31, 32, 33, 34, 35, 36, 37]  # save last ten block activations
+seed: 156
+num_seeds: 1
+mixed_precision: True
+device: "cuda:0"
+cfg_scale: 1.0
+prompt: "cute black cat standing up wearing red boots and a bow tie, photorealistic, masterpiece, macro wildlife photography, dewy grass, closeup low angle, wildflowers, sun, shadows, depth of field, desaturated, film grain, low quality"
+visualize_words: ["cat", "tie"]  # tokens to start the bouncing from
+num_inference_steps: 4
+max_seq_len: 256
+max_seeds_per_job: 99999
+methods: [
+        # "tokenrank_src", # visualizes token rank only (outgoing attention)
+        # "row_select", # visualizes the row select op (outgoing attention)
+        "bounce_src", # visualizes all bounces, note first bounce is equivalent to row_select (outgoing attention)
+        # "tokenrank_sink" # visualizes token rank only (incoming attention)
+        # "tokenrank_sink_pretty" # visualizes token rank only, normalizes columns for better visualization (incoming attention)
+        # "column_select" # visualizes the column select op (incoming attention)
+        # "bounce_sink" # visualizes all bounces, note first bounce is equivalent to column_select (incoming attention)
+        "bounce_sink_pretty", # visualizes all bounces, note first bounce is equivalent to column_select, normalizes columns for better visualization (incoming attention)
+          ]
+tokenrank_alpha: 0.99
+n_bounces: 10  # number of bounces if method includes bouncing
+attention_channel: ["dual", "single"]  # which attention blocks type to use

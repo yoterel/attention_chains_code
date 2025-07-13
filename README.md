@@ -7,6 +7,6 @@ This is the official implementation of Attention (as discrete-time Markov) Chain
 # Todos
 - [x] basic helper functions
 - [ ] notebook
-- [ ] demo for flux
+- [x] demo for flux
 - [ ] demo for DINOv1/2
 - [ ] reproduction of experiments
