@@ -24,6 +24,6 @@ You can edit [flux.yml](https://github.com/yoterel/attention_chains_code/blob/ma
 ## Todos
 - [x] basic helper functions
 - [x] viz demo for flux
-- [ ] seg demo for flux
+- [x] seg demo for flux
 - [x] demo for DINOv1/2
 - [ ] reproduction of experiments
