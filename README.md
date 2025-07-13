@@ -4,9 +4,26 @@
 
 This is the official implementation of Attention (as discrete-time Markov) Chains
 
-# Todos
+## Usage
+
+### Core Functionallity
+For a straight-forward implemetation of multi-bounce attention, TokenRank, and lambda-weighting form the paper, see [here](https://github.com/yoterel/attention_chains_code/blob/main/helpers.py).
+
+### FLUX Visualization Demo
+
+For visualizing attention with FLUX, run:
+
+`flux.py flux.yml`
+
+You can edit [flux.yml](https://github.com/yoterel/attention_chains_code/blob/main/flux.yml) for tinkering with the results.
+
+*Note: you must have the libraries imported by [flux.py](https://github.com/yoterel/attention_chains_code/blob/main/flux.py) installed in your virtual environment
+
+###
+
+## Todos
 - [x] basic helper functions
-- [ ] notebook
-- [x] demo for flux
-- [ ] demo for DINOv1/2
+- [x] viz demo for flux
+- [ ] seg demo for flux
+- [x] demo for DINOv1/2
 - [ ] reproduction of experiments
