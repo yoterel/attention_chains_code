@@ -92,7 +92,7 @@ def main():
                     plt_attention(word, token_index, method, stb, stb_raw, None, args, output_dir, "dual_stream")
 
 
-def plt_attention(word, token_index, method, attention, attention_raw, layer_index, args, output_dir, att_type_name):
+def plt_attention(word, token_index, method, attention, attention_raw, layer_index, args, output_dir, att_type_name, save_raw=False):
     """
     visualizes attention matrices
     :param word: the string represented by the token of interest
@@ -112,6 +112,7 @@ def plt_attention(word, token_index, method, attention, attention_raw, layer_ind
     :param args: command line arguments
     :param output_dir: directory to output visualization
     :param att_type_name: helps distinguish dual or single stream
+    :param save_raw: if true, will save raw activations after applying bouncing
     Note: for FLUX dev, we average over head dimension prior to this function due to memory constraints.
     """
     attention_raw = attention_raw.detach().clone().to(torch.float32)
@@ -218,15 +219,21 @@ def plt_attention(word, token_index, method, attention, attention_raw, layer_ind
         raise NotImplementedError
     signal = signal.to("cpu")
     signal = signal.reshape(-1, 32, 32)
-    signal = torch.nn.functional.interpolate(signal.unsqueeze(0), scale_factor=32, mode="nearest")[0].numpy()
-    nom = signal - signal.min(axis=(1,2), keepdims=True)
-    denom = signal.max(axis=(1,2), keepdims=True) - signal.min(axis=(1,2), keepdims=True)
-    signal = nom / (denom + 1e-6)
-    signal = (255*np.clip(signal, 0, 1)).round().astype(np.uint8)
+    # save results
     save_path = Path(output_dir, method, att_type_name)
     save_path.mkdir(exist_ok=True, parents=True)
-    for i in range(len(signal)):
-        plt.imsave(fname=Path(save_path, "{}_{:02d}.png".format(word, i)), arr=signal[i, :, :], format='png')
+    if save_raw:
+        signal = signal.numpy()
+        for i in range(len(signal)):
+            np.save(Path(save_path, "{}_{:02d}.npy".format(word, i)), signal[i, :, :])
+    else:
+        signal = torch.nn.functional.interpolate(signal.unsqueeze(0), scale_factor=32, mode="nearest")[0].numpy()
+        nom = signal - signal.min(axis=(1,2), keepdims=True)
+        denom = signal.max(axis=(1,2), keepdims=True) - signal.min(axis=(1,2), keepdims=True)
+        signal = nom / (denom + 1e-6)
+        signal = (255*np.clip(signal, 0, 1)).round().astype(np.uint8)
+        for i in range(len(signal)):
+            plt.imsave(fname=Path(save_path, "{}_{:02d}.png".format(word, i)), arr=signal[i, :, :], format='png')
 
 
 def get_attentions(pipe, args):

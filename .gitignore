@@ -193,6 +193,7 @@ cython_debug/
 .cursorignore
 .cursorindexingignore
 
-# Model checkpoints
+# Model checkpoints / results
 *.pth
 models
+results
