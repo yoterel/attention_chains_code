@@ -228,12 +228,15 @@ def plt_attention(word, token_index, method, attention, attention_raw, layer_ind
             np.save(Path(save_path, "{}_{:02d}.npy".format(word, i)), signal[i, :, :])
     else:
         signal = torch.nn.functional.interpolate(signal.unsqueeze(0), scale_factor=32, mode="nearest")[0].numpy()
+        mask = signal > signal.mean(axis=(1,2), keepdims=True)
         nom = signal - signal.min(axis=(1,2), keepdims=True)
         denom = signal.max(axis=(1,2), keepdims=True) - signal.min(axis=(1,2), keepdims=True)
         signal = nom / (denom + 1e-6)
         signal = (255*np.clip(signal, 0, 1)).round().astype(np.uint8)
         for i in range(len(signal)):
             plt.imsave(fname=Path(save_path, "{}_{:02d}.png".format(word, i)), arr=signal[i, :, :], format='png')
+            cur_mask = Image.fromarray(mask[i].astype(np.uint8)*255)
+            cur_mask.save(Path(save_path, "mask_{}_{:02d}.png".format(word, i)))
 
 
 def get_attentions(pipe, args):
