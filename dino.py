@@ -142,47 +142,6 @@ class Mlp(nn.Module):
         x = self.drop(x)
         return x
 
-
-class ManipulateAttention:
-    def __init__(self, model,
-                drop_mode_='stst_col_random',
-                q_=0.05, just_save=False,
-                replace=False,
-                layers_to_use=None):
-        # drop_mode: stst/patch/sum , col/row, random/low/high
-        self.q = q_
-        self.drop_mode = drop_mode_
-        self.layers_to_use = layers_to_use
-        self.model = model
-        self.n_layers = len(self.model.blocks)
-        self.hooks = []
-        self.tss = None
-        self.c = 0
-        for name, module in self.model.named_modules():
-            if just_save:
-                if "dummy_before_softmax" in name:
-                    self.c += 1
-                    h1 = module.register_forward_hook(self.save_attention)
-                    self.hooks.append(h1)
-        self.attentions = []  # will store list attention scores *prior* to softmax (b, h, seq, seq)
-        self.cur_layer = 0
-    
-    def save_attention(self, module, input, output):
-        self.attentions.append(output)
-
-    def __call__(self, input_tensor):
-        with torch.no_grad():
-            output = self.model(input_tensor)
-        return output
-    
-    def get_intermediate_layers(self, x, n=1):
-        return self.model.get_intermediate_layers(x, n)
-    
-    def remove_hooks(self):
-        for h in self.hooks:
-            h.remove()
-        self.cur_layer = 0
-
 # Define a recursive monkey patching function
 def replace_attn(module):
     module_output = module

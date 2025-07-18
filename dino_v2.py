@@ -75,47 +75,6 @@ class DummyLayer(nn.Module):
     def forward(self, x):
         return x
 
-class ManipulateAttention:
-    def __init__(self, model,
-                drop_mode_='stst_col_random',
-                q_=0.05, just_save=False,
-                replace=False,
-                layers_to_use=None,
-                use_weights=None,
-                avg_method=None):
-        self.q = q_
-        self.drop_mode = drop_mode_
-        self.layers_to_use = layers_to_use
-        self.model = model
-        self.n_layers = model.n_blocks
-        self.hooks = []
-        self.tss = None
-        for name, module in self.model.named_modules():
-            if just_save:
-                if "dummy_before_softmax" in name:
-                    h1 = module.register_forward_hook(self.save_attention)
-                    self.hooks.append(h1)
-
-        self.attentions = []  # will store list attention scores *prior* to softmax (b, h, seq, seq)
-        self.vss = []
-        self.lambdas = []
-        self.cur_layer = 0
-        self.use_weights = use_weights  # (n_layers_to_use, n_heads)
-        self.avg_method = avg_method
-
-    def save_attention(self, module, input, output):
-        self.attentions.append(output)
-
-    def __call__(self, input_tensor):
-        with torch.no_grad():
-            output = self.model(input_tensor)
-        return output
-    
-    def remove_hooks(self):
-        for h in self.hooks:
-            h.remove()
-        self.cur_layer = 0
-    
 
 def load_pretrained(arch):
     torch.hub.set_dir("./models/dinov2")

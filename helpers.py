@@ -120,3 +120,27 @@ if __name__ == "__main__":
     ss3 = batch_power_method(matrices, init_state)
     assert torch.all(torch.isclose(ss3, ss_sumnorm))
 
+
+class HookAttention:
+    def __init__(self, model):
+        self.model = model
+        self.hooks = []
+        self.c = 0
+        for name, module in self.model.named_modules():
+            if "dummy_before_softmax" in name:
+                self.c += 1
+                h1 = module.register_forward_hook(self.save_attention)
+                self.hooks.append(h1)
+        self.attentions = []
+
+    def save_attention(self, module, input, output):
+        self.attentions.append(output.cpu())
+
+    def __call__(self, input_tensor):
+        with torch.no_grad():
+            output = self.model(input_tensor)
+        return output
+    
+    def remove_hooks(self):
+        for h in self.hooks:
+            h.remove()
