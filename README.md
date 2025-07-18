@@ -1,15 +1,34 @@
-[Project Page](https://yoterel.github.io/attention_chains/) | [Paper]() | [Supplementary](https://yoterel.github.io/attention_chains/static/pdfs/AttentionChains_supp.pdf)
+<h2 align="center">Attention (as discrete time Markov) Chains</h2>
+<div align="center"> 
+  <a href="https://yoterel.github.io/" target="_blank">Yotam Erel*</a>,
+  <a href="https://odunkel.github.io" target="_blank">Olaf Dünkel*</a>, 
+  <a href="https://rishabhdabral.github.io/" target="_blank">Rishabh Dabral</a>,</span>
+  <a href="https://people.mpi-inf.mpg.de/~golyanik/" target="_blank">Vladislav Golyanik</a>,</span>
+  <a href="https://people.mpi-inf.mpg.de/~theobalt/" target="_blank">Christian Theobalt</a>,</span>
+  <a href="https://www.cs.tau.ac.il/~amberman/" target="_blank">Amit H. Bermano</a></span>
+</div>
+<br>
 
-# Attention Chains
+<div align="center">
 
-This is the official implementation of Attention (as discrete-time Markov) Chains
+[![Project Page](https://img.shields.io/badge/Project-Page-blue)](https://yoterel.github.io/attention_chains/)
+[![Paper](https://img.shields.io/badge/arXiv-PDF-b31b1b)]()
+
+</div>
+
+
+This is the official implementation of Attention (as discrete-time Markov) Chains.
 
 ## Usage
 
 ### Core Functionallity
-For a straight-forward implemetation of multi-bounce attention, TokenRank, and lambda-weighting form the paper, see [here](https://github.com/yoterel/attention_chains_code/blob/main/helpers.py).
+For a straight-forward implemetation of multi-bounce attention, TokenRank, and lambda-weighting form the paper, see [helpers.py](https://github.com/yoterel/attention_chains_code/blob/main/helpers.py).
 
-### FLUX Visualization Demo
+### Demos
+
+We provide a demo for DINOv1/2, CLIP, supervised ViT (from transformers library) in [demo.ipynb](https://github.com/yoterel/attention_chains_code/blob/main/demo.ipynb).
+
+#### FLUX Visualization
 
 For visualizing attention with FLUX, run:
 
@@ -22,8 +41,8 @@ You can edit [flux.yml](https://github.com/yoterel/attention_chains_code/blob/ma
 ###
 
 ## Todos
-- [x] basic helper functions
-- [x] viz demo for flux
-- [x] seg demo for flux
-- [x] demo for DINOv1/2
-- [ ] reproduction of experiments
+- [x] Basic functionality
+- [x] Visualization demo for FLUX
+- [x] Segmentation demo for FLUX
+- [x] Demo for DINOv1/2, ViT, CLIP
+- [ ] Reproduction of experiments
