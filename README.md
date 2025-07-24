@@ -17,11 +17,11 @@
 </div>
 
 
-This is the official implementation of Attention (as discrete-time Markov) Chains.
+This is the official implementation of Attention (as Discrete-Time Markov) Chains.
 
 ## Usage
 
-### Core Functionallity
+### Core Functionality
 For a straight-forward implemetation of multi-bounce attention, TokenRank, and lambda-weighting form the paper, see [helpers.py](https://github.com/yoterel/attention_chains_code/blob/main/helpers.py).
 
 ### Demos
