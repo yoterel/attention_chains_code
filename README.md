@@ -12,7 +12,7 @@
 <div align="center">
 
 [![Project Page](https://img.shields.io/badge/Project-Page-blue)](https://yoterel.github.io/attention_chains/)
-[![Paper](https://img.shields.io/badge/arXiv-PDF-b31b1b)]()
+[![Paper](https://img.shields.io/badge/arXiv-PDF-b31b1b)](https://arxiv.org/pdf/2507.17657)
 
 </div>
 
