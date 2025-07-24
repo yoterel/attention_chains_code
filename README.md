@@ -1,4 +1,4 @@
-<h2 align="center">Attention (as discrete time Markov) Chains</h2>
+<h2 align="center">Attention (as Discrete-Time Markov) Chains</h2>
 <div align="center"> 
   <a href="https://yoterel.github.io/" target="_blank">Yotam Erel*</a>,
   <a href="https://odunkel.github.io" target="_blank">Olaf Dünkel*</a>, 
