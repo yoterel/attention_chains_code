@@ -6,7 +6,10 @@
   <a href="https://people.mpi-inf.mpg.de/~golyanik/" target="_blank">Vladislav Golyanik</a>,</span>
   <a href="https://people.mpi-inf.mpg.de/~theobalt/" target="_blank">Christian Theobalt</a>,</span>
   <a href="https://www.cs.tau.ac.il/~amberman/" target="_blank">Amit H. Bermano</a></span>
+  
+*denoted equal contribution
 </div>
+
 <br>
 
 <div align="center">
