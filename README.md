@@ -25,7 +25,7 @@ This is the official implementation of Attention (as Discrete-Time Markov) Chain
 ## Usage
 
 ### Core Functionality
-For a straight-forward implemetation of multi-bounce attention, TokenRank, and lambda-weighting form the paper, see [helpers.py](https://github.com/yoterel/attention_chains_code/blob/main/helpers.py).
+For a straight-forward implemetation of multi-bounce attention, TokenRank, and lambda-weighting from the paper, see [helpers.py](https://github.com/yoterel/attention_chains_code/blob/main/helpers.py).
 
 ### Demos
 
