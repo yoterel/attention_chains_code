@@ -49,3 +49,18 @@ You can edit [flux.yml](https://github.com/yoterel/attention_chains_code/blob/ma
 - [x] Segmentation demo for FLUX
 - [x] Demo for DINOv1/2, ViT, CLIP
 - [ ] Reproduction of experiments
+
+## 🎓 Citation
+If you find our work useful, please consider giving a star ⭐ and a citation.
+
+```bibtex
+@article{erel2025attentionasdiscretetimemarkov,
+      title = {Attention (as Discrete-Time Markov) Chains},
+      author = {Erel, Yotam and D{\"u}nkel, Olaf and Dabral, Rishabh and Golyanik, Vladislav and Theobalt, Christian and Bermano, Amit H.},
+      journal = {arXiv preprint arXiv:2507.17657},
+      year = {2025}
+}
+```
+
+
+ 
