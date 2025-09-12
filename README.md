@@ -7,7 +7,7 @@
   <a href="https://people.mpi-inf.mpg.de/~theobalt/" target="_blank">Christian Theobalt</a>,</span>
   <a href="https://www.cs.tau.ac.il/~amberman/" target="_blank">Amit H. Bermano</a></span>
   
-*denoted equal contribution
+*denotes equal contribution
 </div>
 
 <br>
