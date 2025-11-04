@@ -6,8 +6,10 @@
   <a href="https://people.mpi-inf.mpg.de/~golyanik/" target="_blank">Vladislav Golyanik</a>,</span>
   <a href="https://people.mpi-inf.mpg.de/~theobalt/" target="_blank">Christian Theobalt</a>,</span>
   <a href="https://www.cs.tau.ac.il/~amberman/" target="_blank">Amit H. Bermano</a></span>
-  
+
 *denotes equal contribution
+
+<p align="center"><strong>NeurIPS 2025</strong></p>
 </div>
 
 <br>
@@ -16,6 +18,7 @@
 
 [![Project Page](https://img.shields.io/badge/Project-Page-blue)](https://yoterel.github.io/attention_chains/)
 [![Paper](https://img.shields.io/badge/arXiv-PDF-b31b1b)](https://arxiv.org/pdf/2507.17657)
+[![Google Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1zoxggF3KAIGNuXpkT4jozd8ZwvPr_MVA?usp=sharing)
 
 </div>
 
